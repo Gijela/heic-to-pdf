@@ -23,9 +23,6 @@ export default function ClientWrapper() {
       <header className="border-b border-gray-200 py-4">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="text-xl font-bold">HEIC to PDF</div>
-          <div>
-            <button className="text-blue-600 hover:underline">登录</button>
-          </div>
         </div>
       </header>
 
@@ -78,9 +75,7 @@ export default function ClientWrapper() {
               </div>
               <div>
                 <h4 className="font-bold">最大文件大小是多少？</h4>
-                <p className="text-gray-700">
-                  免费用户可以转换最大10MB的HEIC文件。高级用户可以转换最大100MB的文件。
-                </p>
+                <p className="text-gray-700">不限制文件大小, 且支持批量转换</p>
               </div>
               <div>
                 <h4 className="font-bold">我会丢失图像质量吗？</h4>
@@ -92,25 +87,10 @@ export default function ClientWrapper() {
 
             <h3 className="text-xl font-bold mb-4">为什么使用我们的转换器？</h3>
             <ul className="list-disc list-inside mb-8 space-y-2">
-              <li>快速高效的转换</li>
-              <li>保持原始质量</li>
-              <li>完全在浏览器中处理，更安全</li>
-              <li>无需安装软件</li>
-              <li>支持多种输出格式</li>
+              <li>完全免费, 快速高效的转换且不限制文件大小</li>
+              <li>无需安装软件, 完全在浏览器中处理，更安全</li>
+              <li>一次转换多个HEIC文件, 支持批量转换功能, 支持多种输出格式</li>
             </ul>
-
-            <div className="bg-gray-100 p-6 rounded-lg mb-8">
-              <h3 className="text-xl font-bold mb-4">高级功能</h3>
-              <ul className="list-disc list-inside space-y-2 mb-4">
-                <li>一次转换多个HEIC文件</li>
-                <li>转换最大100MB的文件</li>
-                <li>批量转换功能</li>
-                <li>更多输出格式选择</li>
-              </ul>
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors">
-                获取高级版
-              </button>
-            </div>
           </div>
         </div>
       </main>
@@ -119,17 +99,6 @@ export default function ClientWrapper() {
         <div className="container mx-auto px-4">
           <div className="text-center text-gray-600 text-sm">
             © {currentYear} HEIC to PDF 转换器。保留所有权利。
-            <div className="mt-2 space-x-4">
-              <Link href="#" className="hover:underline">
-                价格
-              </Link>
-              <Link href="#" className="hover:underline">
-                隐私
-              </Link>
-              <Link href="#" className="hover:underline">
-                条款
-              </Link>
-            </div>
           </div>
         </div>
       </footer>
