@@ -814,7 +814,12 @@ export default function HeicConverter() {
       {files.length === 0 ? (
         // 无文件状态 - 简洁中心布局
         <div className="flex flex-col items-center justify-center">
-          <div className="flex justify-center items-center w-full">
+          <div
+            className="flex justify-center items-center w-full"
+            onClick={() => {
+              fileInputRef.current?.click();
+            }}
+          >
             <div
               className="border-2 border-dashed border-blue-200 rounded-xl bg-blue-50 flex flex-col items-center justify-center cursor-pointer hover:bg-blue-100 transition-colors"
               {...getRootProps()}
