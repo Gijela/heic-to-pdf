@@ -1,0 +1,12 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" rx="28" fill="#6366f1"/>
+  <text x="15" y="70" font-family="Arial Black, Arial, sans-serif" font-size="56" fill="white" font-weight="bold">
+    heic
+  </text>
+  <text x="80" y="115" font-family="Arial Black, Arial, sans-serif" font-size="36" fill="white" font-weight="bold">
+    to
+  </text>
+  <text x="85" y="165" font-family="Arial Black, Arial, sans-serif" font-size="56" fill="white" font-weight="bold">
+    pdf
+  </text>
+</svg>

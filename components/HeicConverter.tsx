@@ -103,12 +103,12 @@ export default function HeicConverter() {
   };
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const handleOptionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleOptionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setOutputType(e.target.value as "jpeg" | "pdf");
   };
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const handlePdfModeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handlePdfModeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setPdfMode(e.target.value as "separate" | "merge");
   };
 
@@ -128,7 +128,7 @@ const handlePdfModeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
   };
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const toggleConfigPanel = () => {
+  const toggleConfigPanel = () => {
     setShowConfigPanel((prev) => !prev);
   };
 
@@ -532,7 +532,7 @@ const toggleConfigPanel = () => {
         const fileName =
           images.length === 1
             ? `${images[0].name}.pdf`
-            : `合并文档_${new Date().getTime()}.pdf`;
+            : `merged_${new Date().getTime()}.pdf`;
 
         doc.save(fileName);
       } else {
@@ -815,7 +815,7 @@ const toggleConfigPanel = () => {
   return (
     <article className="max-w-4xl mx-auto py-8">
       {files.length === 0 ? (
-        // 无文件状态 - 简洁中心布局
+        // No files state - clean center layout
         <div className="flex flex-col items-center justify-center">
           <div
             className="flex justify-center items-center w-full"
@@ -831,7 +831,7 @@ const toggleConfigPanel = () => {
               <input
                 {...getInputProps()}
                 ref={fileInputRef}
-                aria-label="选择HEIC文件"
+                aria-label="Select HEIC files for HEIC to PDF conversion"
               />
 
               <button
@@ -847,6 +847,7 @@ const toggleConfigPanel = () => {
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
@@ -855,11 +856,14 @@ const toggleConfigPanel = () => {
                     d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
                   />
                 </svg>
-                选择文件
+                Select Files
               </button>
-              <p className="text-gray-500 mb-4 text-lg">或拖放HEIC文件到此处</p>
+              <p className="text-gray-500 mb-4 text-lg">
+                or drag and drop HEIC files here
+              </p>
               <p className="text-sm text-gray-500">
-                支持HEIC格式 • 支持批量上传 • 不限文件大小
+                Supports HEIC format • Batch upload • No file size limit • Local
+                conversion for privacy
               </p>
             </div>
           </div>
@@ -874,6 +878,7 @@ const toggleConfigPanel = () => {
                 className="h-5 w-5 text-red-500 mr-2 flex-shrink-0"
                 viewBox="0 0 20 20"
                 fill="currentColor"
+                aria-hidden="true"
               >
                 <path
                   fillRule="evenodd"
@@ -901,6 +906,7 @@ const toggleConfigPanel = () => {
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
@@ -909,7 +915,7 @@ const toggleConfigPanel = () => {
                     d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
                   />
                 </svg>
-                继续上传文件
+                Continue Upload Files
                 <input
                   type="file"
                   ref={fileInputRef}
@@ -921,12 +927,14 @@ const toggleConfigPanel = () => {
                   className="hidden"
                   accept=".heic"
                   multiple
+                  aria-label="Select more HEIC files"
                 />
               </button>
 
               <button
                 onClick={removeAllFiles}
                 className="ml-3 bg-red-50 text-red-500 hover:bg-red-100 py-2 px-4 rounded flex items-center transition-colors"
+                aria-label="Clear file list"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -934,6 +942,7 @@ const toggleConfigPanel = () => {
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
+                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
@@ -942,7 +951,7 @@ const toggleConfigPanel = () => {
                     d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
                   />
                 </svg>
-                清空列表
+                Clear List
               </button>
             </div>
 
@@ -955,8 +964,9 @@ const toggleConfigPanel = () => {
                       className="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out"
                       checked={pdfMode === "merge"}
                       onChange={handlePdfMergeCheckbox}
+                      aria-label="Merge PDF files"
                     />
-                    <span className="ml-2 text-gray-700">合并PDF文件</span>
+                    <span className="ml-2 text-gray-700">Merge PDF files</span>
                   </label>
                 </div>
               )}
@@ -964,13 +974,14 @@ const toggleConfigPanel = () => {
               <button
                 onClick={() => setShowConfigPanel(true)}
                 className="text-gray-500 hover:text-gray-700 p-1"
-                aria-label="设置选项"
+                aria-label="Set advanced options"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5"
                   viewBox="0 0 20 20"
                   fill="currentColor"
+                  aria-hidden="true"
                 >
                   <path
                     fillRule="evenodd"
@@ -989,6 +1000,7 @@ const toggleConfigPanel = () => {
                       ? "bg-gray-400 cursor-not-allowed"
                       : "bg-indigo-500 hover:bg-indigo-600"
                   }`}
+                aria-label="Start converting HEIC files"
               >
                 {converting ? (
                   <>
@@ -997,6 +1009,7 @@ const toggleConfigPanel = () => {
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
+                      aria-hidden="true"
                     >
                       <circle
                         className="opacity-25"
@@ -1012,17 +1025,18 @@ const toggleConfigPanel = () => {
                         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                       ></path>
                     </svg>
-                    转换中
+                    Converting
                   </>
                 ) : (
                   <>
-                    转换
+                    Convert
                     <svg
                       className="ml-2 -mr-1 w-5 h-5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
                     >
                       <path
                         strokeLinecap="round"
@@ -1051,6 +1065,7 @@ const toggleConfigPanel = () => {
                     stroke="currentColor"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
                   >
                     <path
                       strokeLinecap="round"
@@ -1089,6 +1104,7 @@ const toggleConfigPanel = () => {
                         className="h-4 w-4 mr-1"
                         viewBox="0 0 20 20"
                         fill="currentColor"
+                        aria-hidden="true"
                       >
                         <path
                           fillRule="evenodd"
@@ -1096,12 +1112,12 @@ const toggleConfigPanel = () => {
                           clipRule="evenodd"
                         />
                       </svg>
-                      完成
+                      Completed
                     </span>
                   )}
 
                   <div className="flex items-center">
-                    <span className="text-gray-500 mr-2">输出:</span>
+                    <span className="text-gray-500 mr-2">Output:</span>
                     <div className="relative">
                       <select
                         className="bg-white border border-gray-300 text-gray-700 py-1 pl-2 pr-8 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
@@ -1113,6 +1129,7 @@ const toggleConfigPanel = () => {
                           )
                         }
                         disabled={converting}
+                        aria-label="Select output format"
                       >
                         <option value="pdf">PDF</option>
                         <option value="jpeg">JPEG</option>
@@ -1124,6 +1141,7 @@ const toggleConfigPanel = () => {
                           stroke="currentColor"
                           viewBox="0 0 24 24"
                           xmlns="http://www.w3.org/2000/svg"
+                          aria-hidden="true"
                         >
                           <path
                             strokeLinecap="round"
@@ -1142,13 +1160,14 @@ const toggleConfigPanel = () => {
                     className={`text-gray-500 hover:text-red-600 p-1 ${
                       converting ? "opacity-50 cursor-not-allowed" : ""
                     }`}
-                    aria-label={`移除文件 ${file.name}`}
+                    aria-label={`Remove file ${file.name}`}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-5 w-5"
                       viewBox="0 0 20 20"
                       fill="currentColor"
+                      aria-hidden="true"
                     >
                       <path
                         fillRule="evenodd"
@@ -1162,21 +1181,25 @@ const toggleConfigPanel = () => {
             ))}
           </div>
 
-          {/* 高级配置弹窗 - 改为弹窗形式 */}
+          {/* 高级配置弹窗 */}
           {showConfigPanel && (
             <div className="fixed inset-0 bg-black bg-opacity-45 backdrop-filter backdrop-blur-sm flex items-center justify-center z-50 p-4 transition-all duration-300 ease-in-out">
               <div className="bg-white rounded-xl shadow-xl overflow-hidden max-w-xl w-full max-h-[90vh] flex flex-col animate-fade-in">
                 <div className="p-4 bg-white flex justify-between items-center">
-                  <h3 className="text-lg font-medium">高级配置选项</h3>
+                  <h3 className="text-lg font-medium">
+                    PDF Conversion Advanced Options
+                  </h3>
                   <button
                     onClick={() => setShowConfigPanel(false)}
                     className="text-gray-500 hover:text-gray-700"
+                    aria-label="Close configuration panel"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-5 w-5"
                       viewBox="0 0 20 20"
                       fill="currentColor"
+                      aria-hidden="true"
                     >
                       <path
                         fillRule="evenodd"
@@ -1203,6 +1226,7 @@ const toggleConfigPanel = () => {
                 className="h-5 w-5 text-red-500 mr-2 flex-shrink-0"
                 viewBox="0 0 20 20"
                 fill="currentColor"
+                aria-hidden="true"
               >
                 <path
                   fillRule="evenodd"
@@ -1223,9 +1247,9 @@ const toggleConfigPanel = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebApplication",
-            name: "HEIC转PDF在线转换工具",
+            name: "HEIC to PDF Online Conversion Tool",
             description:
-              "免费将HEIC照片转换为PDF或JPEG格式，支持批量处理，无需安装软件",
+              "Free HEIC photos to PDF or JPEG format conversion, supports batch processing, no software installation required",
             operatingSystem: "All",
             applicationCategory: "UtilitiesApplication",
             offers: {

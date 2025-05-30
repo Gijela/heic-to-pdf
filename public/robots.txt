@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://heictopdf.tech/sitemap.xml 
