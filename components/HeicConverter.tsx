@@ -2,7 +2,6 @@
 
 import { useState, useCallback, useRef, useMemo } from "react";
 import { useDropzone } from "react-dropzone";
-import Link from "next/link";
 
 // 定义图片处理配置类型
 type ImageConfig = {
@@ -103,11 +102,13 @@ export default function HeicConverter() {
     return fileConfig?.outputType || outputType;
   };
 
-  const handleOptionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+const handleOptionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setOutputType(e.target.value as "jpeg" | "pdf");
   };
 
-  const handlePdfModeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+const handlePdfModeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setPdfMode(e.target.value as "separate" | "merge");
   };
 
@@ -126,7 +127,8 @@ export default function HeicConverter() {
     }));
   };
 
-  const toggleConfigPanel = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+const toggleConfigPanel = () => {
     setShowConfigPanel((prev) => !prev);
   };
 
@@ -384,11 +386,12 @@ export default function HeicConverter() {
       }
 
       // 创建一个PDF文档用于所有图片
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       let doc: any = null; // 初始化doc变量
 
       // 处理每个图片
       for (let i = 0; i < images.length; i++) {
-        const { blob, name } = images[i];
+        const { blob } = images[i]; // 移除未使用的name解构赋值
 
         // 创建URL
         const url = URL.createObjectURL(blob);
@@ -644,7 +647,7 @@ export default function HeicConverter() {
     document.body.removeChild(link);
   };
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+  const { getRootProps, getInputProps } = useDropzone({
     onDrop,
     accept: {
       "image/heic": [".heic"],
@@ -742,7 +745,7 @@ export default function HeicConverter() {
           </div>
           <p className="text-sm text-gray-400">
             元数据包含拍摄设备、时间、GPS位置等信息。移除元数据可以保护隐私并减小文件大小，
-            但会丢失照片的历史记录和设置信息。对于含有敏感位置信息的照片，建议选择"移除元数据"。
+            但会丢失照片的历史记录和设置信息。对于含有敏感位置信息的照片，建议选择&quot;移除元数据&quot;。
           </p>
         </div>
 
