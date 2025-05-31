@@ -2,3 +2,6 @@ name = "heic2pdf"
 compatibility_date = "2025-05-30"
 compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = ".vercel/output/static"
+
+[vars]
+NEXT_PUBLIC_GOOGLE_ID = "G-52****3V"

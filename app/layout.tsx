@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 export const metadata: Metadata = {
   title: "HEIC to PDF Online Tool | Free Batch Convert HEIC Images to PDF",
@@ -27,7 +28,10 @@ export default function RootLayout({
           content="Favicon for HEIC to PDF online converter, showing image to PDF transformation."
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        {process.env.NODE_ENV === "production" && <GoogleAnalytics />}
+      </body>
     </html>
   );
 }

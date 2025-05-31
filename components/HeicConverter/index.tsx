@@ -8,6 +8,12 @@ import ConfigPanel from "./ConfigPanel";
 import HeaderControls from "./HeaderControls";
 
 export default function HeicConverter() {
+  console.log(
+    "env ==> ",
+    process.env.NODE_ENV,
+    process.env.NODE_ENV === "production"
+  );
+
   const {
     files,
     setFiles,
