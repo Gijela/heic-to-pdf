@@ -1,14 +1,15 @@
 export const runtime = "edge";
 
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "How to Use HEIC to PDF - HEIC to PDF Online Tool",
+  title: "How to Use HEIC to PDF – Step-by-Step Guide",
   description:
-    "Step-by-step guide on how to use the HEIC to PDF tool, including batch conversion, PDF merging, and advanced settings. Learn how to convert HEIC to PDF easily.",
+    "Learn how to convert HEIC to PDF with our online tool. Step-by-step instructions, batch conversion, merging, and advanced settings for the best heic to pdf results.",
   keywords:
-    "heic to pdf, heic to pdf guide, heic conversion tutorial, batch heic to pdf, how to use heic to pdf",
+    "heic to pdf, how to use heic to pdf, heic to pdf tutorial, batch heic to pdf, heic to pdf tips",
   alternates: {
     canonical: "https://heictopdf.tech/how-to-use/",
   },
@@ -20,96 +21,71 @@ export default function HowToUse() {
       <Header />
       <main className="max-w-3xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-4 text-center">
-          How to Use HEIC to PDF Converter
+          How to Use the HEIC to PDF Converter
         </h1>
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold mb-2">
-            Quick Start: HEIC to PDF
-          </h2>
-          <p className="text-gray-700 mb-2">
-            Follow these steps to convert HEIC to PDF using our online HEIC to
-            PDF tool:
-          </p>
+          <h2 className="text-2xl font-semibold mb-2">Quick Start Guide</h2>
           <ol className="list-decimal list-inside text-gray-700 space-y-1">
             <li>
-              Open the homepage and click "Select Files" or drag and drop HEIC
-              images into the upload area of the HEIC to PDF converter
+              Go to the homepage and click “Upload Files” or drag HEIC images
+              into the converter area.
             </li>
             <li>
-              You can continue to add more HEIC images, batch upload supported
-              for HEIC to PDF
+              Optionally, add more images for batch HEIC to PDF conversion.
             </li>
             <li>
-              To merge into a single PDF, check the "Merge PDF" option in the
-              HEIC to PDF tool
+              To merge all images into one PDF, check the “Merge PDF” option.
             </li>
             <li>
-              Click the "Convert" button, and the system will process and
-              download the PDF files automatically
+              Click “Convert” and your PDF(s) will be downloaded automatically.
             </li>
           </ol>
         </section>
         <section className="mb-8">
-          <h2 className="text-xl font-semibold mb-2">
-            Batch HEIC to PDF Conversion & PDF Merging
-          </h2>
-          <h3 className="font-bold mt-4">Batch HEIC to PDF Conversion</h3>
-          <p className="text-gray-700 mb-2">
-            Upload multiple HEIC files at once and convert them to PDF in bulk
-            for maximum efficiency. Our HEIC to PDF tool makes batch conversion
-            easy.
-          </p>
-          <h3 className="font-bold mt-4">PDF Merging with HEIC to PDF</h3>
-          <p className="text-gray-700 mb-2">
-            Check "Merge PDF" to combine all images into a single multi-page PDF
-            document using the HEIC to PDF converter, perfect for organizing and
-            archiving.
-          </p>
+          <h2 className="text-xl font-semibold mb-2">Advanced Tips & Tricks</h2>
+          <ul className="list-disc list-inside text-gray-700">
+            <li>
+              Use the advanced settings to adjust PDF page size, image scaling,
+              and metadata handling.
+            </li>
+            <li>
+              For best quality, upload original HEIC files (avoid screenshots or
+              compressed images).
+            </li>
+            <li>
+              Batch conversion is ideal for organizing photo albums or archiving
+              Apple device images.
+            </li>
+            <li>Use the “Crop” or “Scale” options for custom PDF layouts.</li>
+          </ul>
         </section>
         <section className="mb-8">
           <h2 className="text-xl font-semibold mb-2">
-            Advanced HEIC to PDF Settings
+            Common Mistakes to Avoid
           </h2>
           <ul className="list-disc list-inside text-gray-700">
             <li>
-              PDF Page Size: Choose between image size, A4, or Letter standard
-              in the HEIC to PDF tool
+              Uploading non-HEIC files—only HEIC images are supported for
+              conversion.
             </li>
             <li>
-              Metadata Handling: Choose to keep or remove image metadata such as
-              camera info and GPS during HEIC to PDF conversion
+              Forgetting to check “Merge PDF” if you want a single document.
             </li>
-            <li>
-              Image Size Adjustment: Customize output width and height, with
-              options for max fit, crop, or scale in the HEIC to PDF converter
-            </li>
+            <li>Not reviewing advanced settings for special output needs.</li>
           </ul>
         </section>
         <section>
-          <h2 className="text-xl font-semibold mb-2">HEIC to PDF FAQ & Tips</h2>
-          <h3 className="font-bold mt-4">
-            How to ensure HEIC to PDF conversion quality?
-          </h3>
+          <h2 className="text-xl font-semibold mb-2">Need More Help?</h2>
           <p className="text-gray-700">
-            By default, the original image quality is preserved. The output PDF
-            is clear and usable after HEIC to PDF conversion.
-          </p>
-          <h3 className="font-bold mt-4">
-            Is the HEIC to PDF conversion process safe?
-          </h3>
-          <p className="text-gray-700">
-            All processing is done locally in your browser. Files are never
-            uploaded to any server during HEIC to PDF conversion.
-          </p>
-          <h3 className="font-bold mt-4">
-            Which devices are supported for HEIC to PDF?
-          </h3>
-          <p className="text-gray-700">
-            Works on Windows, Mac, iOS, Android, and all major browsers. HEIC to
-            PDF conversion is available everywhere.
+            For advanced troubleshooting, see our{" "}
+            <a href="/faq" className="text-blue-600 underline">
+              HEIC to PDF FAQ
+            </a>{" "}
+            or contact support.
           </p>
         </section>
       </main>
+      <Footer />
     </>
   );
 }
